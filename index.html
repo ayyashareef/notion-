@@ -2,19 +2,34 @@
 <html>
 <head>
 	<title>Time and Date Display</title>
-	<script>
-		function updateTime() {
-			var now = new Date();
-			var dateString = now.toLocaleDateString();
-			var timeString = now.toLocaleTimeString();
-			document.getElementById('date').innerHTML = dateString;
-			document.getElementById('time').innerHTML = timeString;
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			text-align: center;
 		}
-		setInterval(updateTime, 1000); // Update every second
-	</script>
+
+		h1 {
+			font-size: 3em;
+			color: #333;
+		}
+
+		p {
+			font-size: 2em;
+			color: #666;
+		}
+	</style>
 </head>
 <body>
-	<p>Today's date is: <span id="date"></span></p>
-	<p>The current time is: <span id="time"></span></p>
+	<h1>Current Time and Date</h1>
+	<p id="datetime"></p>
+
+	<script>
+		var today = new Date();
+		var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+		var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+		var dateTime = date+' '+time;
+		document.getElementById("datetime").innerHTML = dateTime;
+	</script>
 </body>
 </html>
